@@ -1,0 +1,25 @@
+<form (submit)="addZeile()">
+  Spalte01  <input type="text" [(ngModel)]="input01" name="Col01">&nbsp;&nbsp;&nbsp;&nbsp;
+  Spalte02  <input type="text" [(ngModel)]="input02" name="Col02">&nbsp;&nbsp;&nbsp;&nbsp;
+  <button type="submit"> hinzufügen</button>
+</form>
+<br><hr><br>
+
+<table>
+  <tr>
+    <th>Nr.</th>
+    <th>Spalte01</th>
+    <th>Spalte02</th>
+    <th>löschen</th>
+  </tr>
+  <tr *ngFor="let row of rows; let i = index">
+    <td>{{i + 1}}</td>
+    <td>{{row.column01}}</td>
+    <td>{{row.column02}}</td>
+    <td> <button (click)="delZeile(i)">löschen</button></td>
+  </tr>
+</table>
+<br><br>
+<button (click)="write_con()">test</button>&nbsp;&nbsp;&nbsp;&nbsp;
+<button (click)="write_srvr()">save server</button>&nbsp;&nbsp;&nbsp;&nbsp;
+<button (click)="read_srvr()">load sedrver</button><br>
