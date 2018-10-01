@@ -25,9 +25,7 @@ export class DemosrvService {
         private localStorageService: LocalStorageService) {
     }
 
-
     write_console(msg): void {
-
         console.log(msg);
     }
 
