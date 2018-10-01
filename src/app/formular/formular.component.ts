@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { DemosrvService } from '../demosrv.service';
+import {Component, OnInit} from '@angular/core';
+import {DemosrvService} from '../demosrv.service';
 import {Observable} from 'rxjs/Rx';
 import {Row} from '../row';
 
 @Component({
-  selector: 'app-formular',
-  templateUrl: './formular.component.html',
-  styleUrls: ['./formular.component.css']
+    selector: 'app-formular',
+    templateUrl: './formular.component.html',
+    styleUrls: ['./formular.component.css']
 })
 export class FormularComponent implements OnInit {
     rows;
@@ -20,33 +20,25 @@ export class FormularComponent implements OnInit {
     }
 
     write_loc() {
-        this._demosrv.write_local(this.rows);
-    }
-
-
-/*
-    write_loc() {
         let msg = this.rows;
         this._demosrv.write_local(msg).subscribe(
             data => {
-                return true;
+                console.log('data saved successfully');
+                return data;
             },
             error => {
                 console.error('Error saving data');
-                return Observable.throw(error);
+                return false;
             }
         );
     }
-*/
+
     read_loc() {
         this._demosrv.read_local().subscribe(
-            // the first argument is a function which runs on success
             data => {
                 this.rows = data;
             },
-            // the second argument is a function which runs on error
             err => console.error(err),
-            // the third argument is a function which runs on completion
             () => console.log('done load data')
         );
     }
@@ -94,7 +86,8 @@ export class FormularComponent implements OnInit {
         }
     }
 
-    constructor(public _demosrv: DemosrvService) { }
+    constructor(public _demosrv: DemosrvService) {
+    }
 
     ngOnInit() {
         this.input01 = '';
