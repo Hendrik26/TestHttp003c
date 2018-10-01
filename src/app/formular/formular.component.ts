@@ -19,6 +19,41 @@ export class FormularComponent implements OnInit {
         console.log('write_con finished');
     }
 
+    write_loc() {
+        this._demosrv.write_local(this.rows);
+    }
+
+    read_loc() {
+        this.rows = this._demosrv.read_local();
+    }
+
+/*
+    write_loc() {
+        let msg = this.rows;
+        this._demosrv.write_local(msg).subscribe(
+            data => {
+                return true;
+            },
+            error => {
+                console.error('Error saving data');
+                return Observable.throw(error);
+            }
+        );
+    }
+
+    read_loc() {
+        this._demosrv.read_local().subscribe(
+            // the first argument is a function which runs on success
+            data => {
+                this.rows = data;
+            },
+            // the second argument is a function which runs on error
+            err => console.error(err),
+            // the third argument is a function which runs on completion
+            () => console.log('done load data')
+        );
+    }
+*/
     write_srvr() {
         let msg = this.rows;
         this._demosrv.write_php(msg).subscribe(

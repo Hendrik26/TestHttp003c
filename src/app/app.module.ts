@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormularComponent } from './formular/formular.component';
+import { LocalStorageModule } from 'angular-2-local-storage';
 
 
 // manuell hinugefügt
@@ -18,7 +19,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 //   manuell hinugefügt
      FormsModule,
-      HttpClientModule
+      HttpClientModule,
+      LocalStorageModule.withConfig({
+          prefix: 'my-app',
+          storageType: 'localStorage'
+      })
   ],
   providers: [],
   bootstrap: [AppComponent]

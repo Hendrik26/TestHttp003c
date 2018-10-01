@@ -1,5 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { LocalStorageService } from 'angular-2-local-storage';
+import {Observable} from 'rxjs';
+import {Row} from './row';
 
 
 const httpOptions = {
@@ -15,7 +18,8 @@ const url02 = 'http://localhost/TestHttp002/read_json.php';
 })
 export class DemosrvService {
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient,
+                private localStorageService: LocalStorageService) {
     }
 
 
@@ -24,6 +28,27 @@ export class DemosrvService {
         console.log(msg);
     }
 
+    write_local(msg) {
+        const key = 'test';
+        this.localStorageService.set(key, msg);
+    }
+
+    read_local() {
+        const key = 'test';
+        return this.localStorageService.get(key);
+    }
+/*
+    write_local(msg): Observable<Row[]> {
+        const key = 'test';
+        this.localStorageService.set(key, msg);
+        return msg;
+    }
+
+    read_local(): Observable<any> {
+        const key = 'test';
+        return this.localStorageService.get(key);
+    }
+*/
     write_php(msg) {
         console.log(msg);
         const body = JSON.stringify(msg);
