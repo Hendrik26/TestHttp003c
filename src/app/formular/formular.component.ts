@@ -23,9 +23,6 @@ export class FormularComponent implements OnInit {
         this._demosrv.write_local(this.rows);
     }
 
-    read_loc() {
-        this.rows = this._demosrv.read_local();
-    }
 
 /*
     write_loc() {
@@ -40,7 +37,7 @@ export class FormularComponent implements OnInit {
             }
         );
     }
-
+*/
     read_loc() {
         this._demosrv.read_local().subscribe(
             // the first argument is a function which runs on success
@@ -53,7 +50,7 @@ export class FormularComponent implements OnInit {
             () => console.log('done load data')
         );
     }
-*/
+
     write_srvr() {
         let msg = this.rows;
         this._demosrv.write_php(msg).subscribe(
