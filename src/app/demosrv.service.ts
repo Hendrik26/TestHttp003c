@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {LocalStorageService} from 'angular-2-local-storage';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
+import {of} from 'rxjs';
 import {Row} from './row';
 
 
@@ -40,7 +41,6 @@ export class DemosrvService {
     }
 
     write_php(msg) {
-        console.log(msg);
         const body = JSON.stringify(msg);
         return this.http.post(url01, body, httpOptions);
     }

@@ -47,6 +47,7 @@ export class FormularComponent implements OnInit {
         let msg = this.rows;
         this._demosrv.write_php(msg).subscribe(
             data => {
+                console.log('data saved successfully');
                 return true;
             },
             error => {
@@ -58,13 +59,10 @@ export class FormularComponent implements OnInit {
 
     read_srvr() {
         this._demosrv.read_php().subscribe(
-            // the first argument is a function which runs on success
             data => {
                 this.rows = data;
             },
-            // the second argument is a function which runs on error
             err => console.error(err),
-            // the third argument is a function which runs on completion
             () => console.log('done load data')
         );
     }
