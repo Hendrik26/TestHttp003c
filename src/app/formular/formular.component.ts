@@ -62,7 +62,9 @@ export class FormularComponent implements OnInit {
     read_srvr() {
         this._demosrv.read_php().subscribe(
             data => {
-                this.rows = data;
+                if (data !== null) {
+                    this.rows = data;
+                }
             },
             err => console.error(err),
             () => console.log('done load data')

@@ -11,8 +11,8 @@ const httpOptions = {
 };
 //const url01 = './write_json.php';
 //const url02 = './json.txt';
-const url01 = 'http://localhost/TestHttp002/write_json.php';
-const url02 = 'http://localhost/TestHttp002/read_json.php';
+const url01 = 'http://localhost/TestHttp003/write_json.php';
+const url02 = 'http://localhost/TestHttp003/read_json.php';
 const key = 'test';
 
 @Injectable({
