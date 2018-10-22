@@ -36,7 +36,9 @@ export class FormularComponent implements OnInit {
     read_loc() {
         this._demosrv.read_local().subscribe(
             data => {
-                this.rows = data;
+                if (data !== null) {
+                    this.rows = data;
+                }
             },
             err => console.error(err),
             () => console.log('done load data')
