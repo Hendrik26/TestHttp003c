@@ -19,18 +19,14 @@ if ($json != "") {
         foreach ($rows as $key => $value) {
             $column01 = $value->column01;
             $column02 = $value->column02;
-            $sql = "insert into tbltesthttp (Spalte01, Spalte02) values ('$column01', '$column02')";
+            $sql = "insert into tbltesthttp (column01, column02) values ('$column01', '$column02')";
             $conn->exec($sql);
         }
         $sql = "COMMIT";
         $conn->exec($sql);
         $conn = null;
-        echo "table written successfully";
     } catch (PDOException $e) {
         echo "write table failed: " . $e->getMessage();
     }
-
-
 }
-
 ?>
