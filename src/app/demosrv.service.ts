@@ -13,6 +13,8 @@ const httpOptions = {
 //const url02 = './json.txt';
 const url01 = 'http://localhost/TestHttp003/write_json.php';
 const url02 = 'http://localhost/TestHttp003/read_json.php';
+const url01_db = 'http://localhost/TestHttp003/write_json_db.php';
+const url02_db = 'http://localhost/TestHttp003/read_json_db.php';
 const key = 'test';
 
 @Injectable({
@@ -45,6 +47,15 @@ export class DemosrvService {
 
     read_php() {
         return this.http.get(url02);
+    }
+
+    write_php_db(msg) {
+        const body = JSON.stringify(msg);
+        return this.http.post(url01_db, body, httpOptions);
+    }
+
+    read_php_db() {
+        return this.http.get(url02_db);
     }
 
 

@@ -71,6 +71,31 @@ export class FormularComponent implements OnInit {
         );
     }
 
+    write_srvr_db() {
+        let msg = this.rows;
+        this._demosrv.write_php_db(msg).subscribe(
+            data => {
+                console.log('data saved successfully');
+                return true;
+            },
+            error => {
+                console.error('Error saving data');
+                return Observable.throw(error);
+            }
+        );
+    }
+
+    read_srvr_db() {
+        this._demosrv.read_php_db().subscribe(
+            data => {
+                if (data !== null) {
+                    this.rows = data;
+                }
+            },
+            err => console.error(err),
+            () => console.log('done load data')
+        );
+    }
 
     addZeile(): void {
         if (this.input01 === '') return;
