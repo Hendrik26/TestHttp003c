@@ -5,16 +5,11 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 $json = file_get_contents("php://input");
 $rows = json_decode($json);
 if ($json != "") {
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "test";
+    include("db_conn.php");
     $sql = "START TRANSACTION; delete from tbltesthttp";
     try {
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-        // set the PDO error mode to exception
+        $conn = new PDO($strConn, $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        //echo "Connected successfully";
         $conn->exec($sql);
         foreach ($rows as $key => $value) {
             $column01 = $value->column01;

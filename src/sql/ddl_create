@@ -1,0 +1,9 @@
+-- we don't know how to generate schema test (class Schema) :(
+create table tbltesthttp
+(
+	ID int auto_increment
+		primary key,
+	column01 char(50) not null,
+	column02 char(50) not null
+)
+;
