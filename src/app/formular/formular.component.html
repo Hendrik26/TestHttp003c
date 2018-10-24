@@ -1,7 +1,7 @@
 <form (submit)="addZeile()">
   Spalte01  <input type="text" [(ngModel)]="input01" name="Col01">&nbsp;&nbsp;&nbsp;&nbsp;
   Spalte02  <input type="text" [(ngModel)]="input02" name="Col02">&nbsp;&nbsp;&nbsp;&nbsp;
-  <button type="submit"> hinzufügen</button>
+  <button [disabled]="buttonDisabled" type="submit"> hinzufügen</button>
 </form>
 <br><hr><br>
 
@@ -16,14 +16,14 @@
     <td>{{i + 1}}</td>
     <td>{{row.column01}}</td>
     <td>{{row.column02}}</td>
-    <td> <button (click)="delZeile(i)">löschen</button></td>
+    <td> <button [disabled]="buttonDisabled" (click)="delZeile(i)">löschen</button></td>
   </tr>
 </table>
 <br><br>
-<button (click)="write_con()">test</button>&nbsp;&nbsp;&nbsp;&nbsp;
-<button (click)="write_srvr()">save server</button>&nbsp;&nbsp;&nbsp;&nbsp;
-<button (click)="read_srvr()">load server</button>&nbsp;&nbsp;&nbsp;&nbsp;
-<button (click)="write_srvr_db()">save database</button>&nbsp;&nbsp;&nbsp;&nbsp;
-<button (click)="read_srvr_db()">load database</button>&nbsp;&nbsp;&nbsp;&nbsp;
-<button (click)="write_loc()">save local</button>&nbsp;&nbsp;&nbsp;&nbsp;
-<button (click)="read_loc()">load local</button><br>
+<button [disabled]="buttonDisabled" (click)="write_con()">test</button>&nbsp;&nbsp;&nbsp;&nbsp;
+<button [disabled]="buttonDisabled" (click)="write_srvr()">save server</button>&nbsp;&nbsp;&nbsp;&nbsp;
+<button [disabled]="buttonDisabled" (click)="read_srvr()">load server</button>&nbsp;&nbsp;&nbsp;&nbsp;
+<button [disabled]="buttonDisabled" (click)="write_srvr_db()">save database</button>&nbsp;&nbsp;&nbsp;&nbsp;
+<button [disabled]="buttonDisabled" (click)="read_srvr_db()">load database</button>&nbsp;&nbsp;&nbsp;&nbsp;
+<button [disabled]="buttonDisabled" (click)="write_loc()">save local</button>&nbsp;&nbsp;&nbsp;&nbsp;
+<button [disabled]="buttonDisabled" (click)="read_loc()">load local</button><br>

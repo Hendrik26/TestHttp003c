@@ -12,6 +12,7 @@ export class FormularComponent implements OnInit {
     rows;
     input01: string;
     input02: string;
+    buttonDisabled = true;
 
 
     write_con() {
@@ -20,6 +21,7 @@ export class FormularComponent implements OnInit {
     }
 
     write_loc() {
+        this.buttonDisabled = true;
         let msg = this.rows;
         this._demosrv.write_local(msg).subscribe(
             data => {
@@ -29,11 +31,15 @@ export class FormularComponent implements OnInit {
             error => {
                 console.error('Error saving data');
                 return false;
+            },
+            () => {
+                this.buttonDisabled = false;
             }
         );
     }
 
     read_loc() {
+        this.buttonDisabled = true;
         this._demosrv.read_local().subscribe(
             data => {
                 if (data !== null) {
@@ -41,11 +47,15 @@ export class FormularComponent implements OnInit {
                 }
             },
             err => console.error(err),
-            () => console.log('done load data')
+            () => {
+                console.log('done load data');
+                this.buttonDisabled = false;
+            }
         );
     }
 
     write_srvr() {
+        this.buttonDisabled = true;
         let msg = this.rows;
         this._demosrv.write_php(msg).subscribe(
             data => {
@@ -55,11 +65,15 @@ export class FormularComponent implements OnInit {
             error => {
                 console.error('Error saving data');
                 return Observable.throw(error);
+            },
+            () => {
+                this.buttonDisabled = false;
             }
         );
     }
 
     read_srvr() {
+        this.buttonDisabled = true;
         this._demosrv.read_php().subscribe(
             data => {
                 if (data !== null) {
@@ -67,11 +81,15 @@ export class FormularComponent implements OnInit {
                 }
             },
             err => console.error(err),
-            () => console.log('done load data')
+            () => {
+                console.log('done load data');
+                this.buttonDisabled = false;
+            }
         );
     }
 
     write_srvr_db() {
+        this.buttonDisabled = true;
         let msg = this.rows;
         this._demosrv.write_php_db(msg).subscribe(
             data => {
@@ -81,11 +99,15 @@ export class FormularComponent implements OnInit {
             error => {
                 console.error('Error saving data');
                 return Observable.throw(error);
+            },
+            () => {
+                this.buttonDisabled = false;
             }
         );
     }
 
     read_srvr_db() {
+        this.buttonDisabled = true;
         this._demosrv.read_php_db().subscribe(
             data => {
                 if (data !== null) {
@@ -93,7 +115,10 @@ export class FormularComponent implements OnInit {
                 }
             },
             err => console.error(err),
-            () => console.log('done load data')
+            () => {
+                console.log('done load data');
+                this.buttonDisabled = false;
+            }
         );
     }
 
