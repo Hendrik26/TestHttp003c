@@ -56,7 +56,7 @@ export class FormularComponent implements OnInit {
 
     write_srvr() {
         this.buttonDisabled = true;
-        let msg = this.rows;
+        const msg = this.rows;
         this._demosrv.write_php(msg).subscribe(
             data => {
                 console.log('data saved successfully');
@@ -123,8 +123,8 @@ export class FormularComponent implements OnInit {
     }
 
     addZeile(): void {
-        if (this.input01 === '') return;
-        if (this.input02 === '') return;
+        if (this.input01 === '') {return; }
+        if (this.input02 === '') {return; }
         this.rows.push({column01: this.input01.trim(), column02: this.input02.trim()});
         this.input01 = '';
         this.input02 = '';
