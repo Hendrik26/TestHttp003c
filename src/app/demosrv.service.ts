@@ -15,7 +15,7 @@ const url01 = 'http://localhost/TestHttp003/write_json.php';
 const url02 = 'http://localhost/TestHttp003/read_json.php';
 const url01_db = 'http://localhost/TestHttp003/write_json_db.php';
 const url02_db = 'http://localhost/TestHttp003/read_json_db.php';
-const key = 'test';
+const key = 'test'; /////
 
 @Injectable({
     providedIn: 'root'
