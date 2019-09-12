@@ -11,12 +11,22 @@ if ($json != "") {
         $conn = new PDO($strConn, $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $conn->exec($sql);
+
+        // ------------------------------------------------
         foreach ($rows as $key => $value) {
+            $stmt = $conn->prepare("insert into tbltesthttp (column01, column02) values
+                                                    (:column01, :column02)");
+            $stmt->bindParam(':column01', $value->column01);
+            $stmt->bindParam(':column02', $value->column02);
+            $stmt->execute();
+        }
+        // -----------------------------------
+        /* foreach ($rows as $key => $value) {
             $column01 = $value->column01;
             $column02 = $value->column02;
             $sql = "insert into tbltesthttp (column01, column02) values ('$column01', '$column02')";
             $conn->exec($sql);
-        }
+        }*/
         $sql = "COMMIT";
         $conn->exec($sql);
         $conn = null;
