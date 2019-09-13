@@ -22,7 +22,7 @@ export class FormularComponent implements OnInit {
 
     write_loc() {
         this.buttonDisabled = true;
-        let msg = this.rows;
+        const msg = this.rows;
         this._demosrv.write_local(msg).subscribe(
             data => {
                 console.log('data saved successfully');
@@ -90,7 +90,7 @@ export class FormularComponent implements OnInit {
 
     write_srvr_db() {
         this.buttonDisabled = true;
-        let msg = this.rows;
+        const msg = this.rows;
         this._demosrv.write_php_db(msg).subscribe(
             data => {
                 console.log('data saved successfully');
@@ -144,7 +144,7 @@ export class FormularComponent implements OnInit {
     ngOnInit() {
         this.input01 = '';
         this.input02 = '';
-        this.rows = [] as Row[]; //create empty array from type 'Row'
+        this.rows = [] as Row[]; // create empty array from type 'Row'
         this.read_srvr();
     }
 
