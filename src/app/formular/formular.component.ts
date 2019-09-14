@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DemosrvService} from '../demosrv.service';
-import {Observable} from 'rxjs/Rx';
+// import {Observable} from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 import {Row} from '../row';
 
 @Component({
