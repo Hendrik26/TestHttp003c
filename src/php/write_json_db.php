@@ -21,12 +21,7 @@ if ($json != "") {
             $stmt->execute();
         }
         // -----------------------------------
-        /* foreach ($rows as $key => $value) {
-            $column01 = $value->column01;
-            $column02 = $value->column02;
-            $sql = "insert into tbltesthttp (column01, column02) values ('$column01', '$column02')";
-            $conn->exec($sql);
-        }*/
+
         $sql = "COMMIT";
         $conn->exec($sql);
         $conn = null;
