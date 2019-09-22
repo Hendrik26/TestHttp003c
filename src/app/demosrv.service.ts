@@ -9,8 +9,8 @@ import {Row} from './row';
 const httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-//const url01 = './write_json.php';
-//const url02 = './json.txt';
+// const url01 = './write_json.php';
+// const url02 = './json.txt';
 const url01 = 'http://localhost/TestHttp003/write_json.php';
 const url02 = 'http://localhost/TestHttp003/read_json.php';
 const url01_db = 'http://localhost/TestHttp003/write_json_db.php';
