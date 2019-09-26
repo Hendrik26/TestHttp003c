@@ -112,10 +112,16 @@ export class FormularComponent implements OnInit {
         this._demosrv.read_php_db().subscribe(
             data => {
                 if (data !== null) {
+                    console.log('\r\n\r\nMethod FormularComponent.read_srvr_db() started!!!\r\n\r\n');
+                    console.log(`\r\n\r\nMethod FormularComponent.read_srvr_db() data ==${data}!!!\r\n\r\n`);
                     this.rows = data;
+                    console.log(`\r\n\r\nMethod read_srvr_db() rows ==${this.rows}!!!\r\n\r\n`);
                 }
             },
-            err => console.error(err),
+            err => {
+                console.log('\r\n\r\nMethod FormularComponent.read_srvr_db() ERROR!!!\r\n\r\n');
+                console.error(err)
+            },
             () => {
                 console.log('done load data');
                 this.buttonDisabled = false;

@@ -55,6 +55,7 @@ export class DemosrvService {
     }
 
     read_php_db() {
+        console.log('\r\n\r\nMethod DemosrvService.read_php_db()!!! \r\n\r\n');
         return this.http.get(url02_db);
     }
 
