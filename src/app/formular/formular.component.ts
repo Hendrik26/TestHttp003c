@@ -120,12 +120,8 @@ export class FormularComponent implements OnInit {
                     if (!(this.isArray(data))) {
                          console.log('\r\n\r\ndbReadError \r\n\r\n');
                     } else {
-                    // try {
                         this.rows = data;
                         console.log('\r\n\r\nproperty rows is set! \r\n\r\n');
-                    // } catch {
-                     //   console.log('\r\n\r\ndbReadError \r\n\r\n');
-                    // }
                     }
                     console.log(`\r\n\r\nMethod read_srvr_db() rows ==${this.rows}!!!\r\n\r\n`);
                 }
