@@ -97,7 +97,14 @@ export class FormularComponent implements OnInit {
         const msg = this.rows;
         this._demosrv.write_php_db(msg).subscribe(
             data => {
-                console.log('data saved successfully');
+                console.log('\r\n\r\nMethod FormularComponent.write_srvr_db() started!!!\r\n\r\n');
+                console.log(`\r\n\r\nMethod FormularComponent.write_srvr_db() data ==${data}!!!\r\n\r\n`);
+                if (data == null) {
+                    console.log('\r\n\r\nMethod FormularComponent.write_srvr_db() data saved successfully!!!\r\n\r\n');
+                }
+                if (data != null) {
+                    console.log('\r\n\r\nMethod FormularComponent.write_srvr_db() DB-saving-error!!!\r\n\r\n');
+                }
                 return true;
             },
             error => {
