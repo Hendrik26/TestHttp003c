@@ -12,14 +12,15 @@ try {
     $json = json_encode($rows);
     $conn = null;
 
-    // echo $json;
+    echo $json;
 } catch (PDOException $e) {
     // echo ("123abc");
     // echo "read table failed: " . $e->getMessage();
+    echo $dbReadError;
 }
 // $x = 1;
 // $y = 2;
 // echo $json;
 // echo ("890xyz");
-echo $dbReadError;
+// echo $dbReadError;
 ?>
