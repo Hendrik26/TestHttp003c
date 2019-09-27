@@ -114,7 +114,11 @@ export class FormularComponent implements OnInit {
                 if (data !== null) {
                     console.log('\r\n\r\nMethod FormularComponent.read_srvr_db() started!!!\r\n\r\n');
                     console.log(`\r\n\r\nMethod FormularComponent.read_srvr_db() data ==${data}!!!\r\n\r\n`);
-                    this.rows = data;
+                    if ((data.column01 == null) || (data.column01 == undefined)) {
+                        console.log('\r\n\r\ndbReadError \r\n\r\n');
+                    } else {
+                        this.rows = data;
+                    }
                     console.log(`\r\n\r\nMethod read_srvr_db() rows ==${this.rows}!!!\r\n\r\n`);
                 }
             },
