@@ -15,6 +15,9 @@ export class FormularComponent implements OnInit {
     input02: string;
     buttonDisabled = true;
 
+    isArray(myArray) {
+        return myArray.constructor === Array;
+    }
 
     write_con() {
         this._demosrv.write_console(this.rows);
@@ -114,11 +117,15 @@ export class FormularComponent implements OnInit {
                 if (data !== null) {
                     console.log('\r\n\r\nMethod FormularComponent.read_srvr_db() started!!!\r\n\r\n');
                     console.log(`\r\n\r\nMethod FormularComponent.read_srvr_db() data ==${data}!!!\r\n\r\n`);
-                    if ((data.column01 == null) || (data.column01 == undefined)) {
-                        console.log('\r\n\r\ndbReadError \r\n\r\n');
-                    } else {
+                    // if ((data.column01 == null) || (data.column01 == undefined)) {
+                        // console.log('\r\n\r\ndbReadError \r\n\r\n');
+                    // } else {
+                    try {
                         this.rows = data;
+                    } catch {
+                        console.log('\r\n\r\ndbReadError \r\n\r\n');
                     }
+                    // }
                     console.log(`\r\n\r\nMethod read_srvr_db() rows ==${this.rows}!!!\r\n\r\n`);
                 }
             },
