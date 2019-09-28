@@ -4,6 +4,8 @@ header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 $json = file_get_contents("php://input");
 $rows = json_decode($json);
+$dbWriteError01 = "dbWriteError";
+$dbWriteError02 = "{\"dbWriteError\":\"dbWriteError\"}";
 if ($json != "") {
     include("db_conn.php");
     $sql = "START TRANSACTION; delete from tbltesthttp";
@@ -26,7 +28,8 @@ if ($json != "") {
         $conn->exec($sql);
         $conn = null;
     } catch (PDOException $e) {
-        echo "write table failed: " . $e->getMessage();
+        // echo "write table failed: " . $e->getMessage();
+        echo $dbWriteError02;
     }
 }
 ?>
