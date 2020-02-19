@@ -4,7 +4,6 @@ import {LocalStorageService} from 'angular-2-local-storage';
 import {Observable} from 'rxjs';
 import {of} from 'rxjs';
 import {Row} from './row';
-//
 
 const httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
